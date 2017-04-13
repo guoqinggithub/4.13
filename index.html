@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="font/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="pub/index.css">
+	<style type="text/css">
+	</style>
+</head>
+<body ng-app="myApp">
+	<div class="wrap" ng-controller="myCtrl">
+		<header class="header">
+			<div class="icon left-icon"><i class="icon iconfont icon-zuojiantou"></i></div>
+			<div class="title">订单支付</div>
+			<div class="icon right-icon"><i class="icon iconfont icon-xiaoxi"></i></div>
+		</header>
+		<div class="container">
+			<div class="address">
+				<div class="left">
+					<div class="con-name"><h2>路飞</h2><span>12*****12</span></div>
+					<div class="left-top"><i class="icon iconfont icon-dizhi"></i>北京市海淀区知春路北京市海淀区知春路北京市海淀区 知春路</div>
+				</div>
+				<div class="right"><i class="icon iconfont icon-youjiantou"></i></div>	
+			</div>
+			<section>
+				<div class="tip">
+					<i class="icon iconfont icon-fz"></i>
+					<h2>恒指然旗舰店</h2>
+				</div>
+				<dl ng-repeat="x in data">
+					<dt><img src="images/weic.png" alt=""></dt>
+					<dd>
+						<div class="dd-top">
+							维维嚼益嚼水果大豆棒橙味维维嚼 益嚼水果大豆棒橙味维维嚼益嚼水果大豆棒橙味维维嚼 益嚼水果大豆棒橙味
+						</div>
+						<div class="bottom">
+							<div class="bottom-left">
+								<p>¥{{x.price}}</p>
+								<s>¥1000.00</s>
+							</div>
+							<div class="bottom-right">
+								<span ng-click="reduce($index)">-</span>
+								<span>{{x.txt}}</span>
+								<span ng-click="add($index)">+</span>
+							</div>
+						</div>
+					</dd>
+				</dl>
+				<div class="shop"><span ng-bind="zong()"></span><h3>商品总金额</h3></div>
+				<div class="shop"><span>{{x.yun}}</span><h3>运费</h3></div>
+				<div class="shop"><span class="zongjia" ng-bind="totil()"></span><h3>总额(含运费)：</h3></div>
+			</section>
+			<div class="gray"></div>
+			<section>
+				<div class="yue">
+					<span ng-model="isTrue"><i class="icon iconfont icon-kaiguan1" style="color:#f1f1f1"></i></span><h3>余额支付</h3>
+				</div>
+				<div class="yue">
+					<span><i class="icon iconfont icon-kaiguan" style="color:green"></i></span><h3>奖金支付</h3>
+				</div>
+				<div class="yue">
+					<span><i class="icon iconfont icon-youjiantou" style="font-size:15px;"></i></span><h3>其他支持方式</h3>
+				</div>
+			</section>
+		</div>
+		<footer class="footer">
+			<div class="titol"><div><p>总计：</p><a ng-bind="totil()"></a></div><div>(含运费)</div></div>
+			<span>提交订单</span>
+		</footer>
+		<div ng-class="'buzu'">金额不足，请选择其他支付！</div>
+	</div>
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
